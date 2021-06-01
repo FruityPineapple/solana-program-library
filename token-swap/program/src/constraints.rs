@@ -1,5 +1,6 @@
 //! Various constraints as required for production environments
 
+ 
 use crate::{
     curve::{
         base::{CurveType, SwapCurve},
@@ -195,3 +196,4 @@ mod tests {
         );
     }
 }
+

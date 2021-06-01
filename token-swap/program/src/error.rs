@@ -1,4 +1,5 @@
 //! Error types
+// TODO: Personalize errors, delete unused errors
 
 use num_derive::FromPrimitive;
 use solana_program::{decode_error::DecodeError, program_error::ProgramError};
@@ -102,6 +103,14 @@ pub enum SwapError {
     /// The operation cannot be performed on the given curve
     #[error("The operation cannot be performed on the given curve")]
     UnsupportedCurveOperation,
+
+    /// Error in case the Pool is empty. Should never happen
+    #[error("Pool is empty")]
+    EmptyPool,
+
+    /// In case Ceiling nor Floor is chosen
+    #[error("No round direction given")]
+    RoundDirectionMissing
 }
 impl From<SwapError> for ProgramError {
     fn from(e: SwapError) -> Self {
